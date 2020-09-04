@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('global') }}
+            {{ encore_entry_link_tags('bootstedmincss') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+        <div id="app"></div>
+
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('jqueryslim') }}
+            {{ encore_entry_script_tags('popermin') }}
+            {{ encore_entry_script_tags('jquerytablesortermin') }}
+            {{ encore_entry_script_tags('bootstedminjs') }}
+            {{ encore_entry_script_tags('index') }}
+        {% endblock %}
+    </body>
+</html>
