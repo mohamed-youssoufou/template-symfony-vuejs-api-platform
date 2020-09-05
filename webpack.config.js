@@ -62,16 +62,29 @@ Encore
 
 
     //enable js entry
-    .addEntry('jqueryslim', './front/src/js/jqueryslim.js')
-    .addEntry('bootstedminjs', './front/src/js/bootstedminjs.js')
-    .addEntry('jquerytablesortermin', './front/src/js/jquerytablesortermin.js')
-    .addEntry('popermin', './front/src/js/popermin.js')
+    .addEntry('jqueryslim', './front/src/assets/js/jqueryslim.js')
+    .addEntry('bootstedminjs', './front/src/assets/js/bootstedminjs.js')
+    .addEntry('jquerytablesortermin', './front/src/assets/js/jquerytablesortermin.js')
+    .addEntry('popermin', './front/src/assets/js/popermin.js')
 
     
 
     //enable style entry
-    .addStyleEntry('global','./front/src/css/global.css')
-    .addStyleEntry('bootstedmincss', './front/src/css/bootstedmincss.css')
+    .addStyleEntry('global','./front/src/assets/css/global.css')
+    .addStyleEntry('bootstedmincss', './front/src/assets/css/bootstedmincss.css')
+
+    //.copyFiles({
+    //     from: './front/src/assets/img',
+
+         // optional target path, relative to the output dir
+    //     to: 'images/assets/[name].[ext]',
+
+         // if versioning is enabled, add the file hash too
+         //to: 'images/[path][name].[hash:8].[ext]',
+
+         // only copy files matching this pattern
+    //     pattern: /\.(png|jpg|jpeg|svg)$/
+    // })
     //.addStyleEntry('orangeHelveticamin', './front/src/css/orangeHelveticamin.css')
     //.addStyleEntry('orangeIconsmin', './front/src/css/orangeIconsmin.css')
 

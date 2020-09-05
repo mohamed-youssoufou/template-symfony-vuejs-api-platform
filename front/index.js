@@ -1,27 +1,18 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
 
-// any CSS you import will output into a single css file (app.css in this case)
-//import '../css/app.css';
-
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
 import Vue from 'vue'
 import App from './App.vue'
 //import './src/plugins/bootstrap'
-import './src/css/global.styl'
+import './src/assets/css/global.styl'
 import NProgress from './src/plugins/Nprogress'
 import './src/plugins/axios'
 import router from './src/router';
+import store from './src/stores/index'
 
 Vue.config.productionTip = false
 
 new Vue({
   NProgress,
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

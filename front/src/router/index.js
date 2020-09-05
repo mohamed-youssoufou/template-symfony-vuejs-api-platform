@@ -1,25 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Login.vue'
 import NProgress from '../plugins/Nprogress'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'Login',
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/home',
+    name: 'home',
+    component: ()=> import('../views/Home.vue') ,
+    beforeEnter: (from, to, next)=>{
+      if(from.name !== "Login" && !isAuthenticated) next({name: 'Login'})
+      next()
+    }
   },
-  { path: "*", redirect: "/" }
+  { path: "*", redirect: "/login" }
 ]
 
 const router = new VueRouter({
