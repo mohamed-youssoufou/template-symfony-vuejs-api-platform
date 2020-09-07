@@ -3,6 +3,7 @@
         "@symfony/webpack-encore": "^0.30.0",
         "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
         "@vue/babel-preset-jsx": "^1.1.2",
+        "@vuepress/plugin-nprogress": "^1.5.4",
         "bootstrap": "^4.5.2",
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",

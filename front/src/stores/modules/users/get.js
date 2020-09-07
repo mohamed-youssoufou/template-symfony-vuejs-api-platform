@@ -1,5 +1,6 @@
 import axios from '../../../plugins/axios'
 
+
 const users = {
     
     namespaced: true,
@@ -7,7 +8,7 @@ const users = {
     state: () => ({
         user: {
             login: '',
-            status: false
+            status: localStorage.getItem('isAuthentificated') || false
         }
     }),
     getters: {
@@ -23,21 +24,7 @@ const users = {
     },
     actions: {
         connectUser: (context, payload) => {
-            let response = {}
-
-            axios.post('users', payload)
-                .then((resultat) => {
-                    response = resultat.data
-                })
-                .catch((error) => {
-                    response = false
-                })
-
-            if(response !== false){
-                context.state.status = response
-                return response;
-            }
-
+            return axios.post('users', payload)
         }
     }
 }
