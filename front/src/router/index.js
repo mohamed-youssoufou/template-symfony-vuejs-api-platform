@@ -29,14 +29,24 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+
+  NProgress.start()
+
   const status = store.getters['UsersModule/getUser'].status
-    if (!status && to.path !== '/login') { 
-      next({ name : 'login' })
-    } else if(status && to.path == '/login') {
-      next({ name : 'home'})
-    } else {
-      next()
-    }
+  if (!status && to.path !== '/login') { 
+    next({ name : 'login' })
+  } else if(status && to.path == '/login') {
+    next({ name : 'home'})
+  } else {
+    next()
+  }
+
+})
+
+
+router.afterEach((to, from, next) => {
+
+  NProgress.done()
 
 })
 
