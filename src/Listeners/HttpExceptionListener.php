@@ -30,7 +30,6 @@ class HttpExceptionListener{
         $response = new JsonResponse($body);
         $response->setStatusCode($exception->getStatusCode());
         $event->setResponse($response);
-
     }
 
 }

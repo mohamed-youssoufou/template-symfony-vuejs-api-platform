@@ -1,12 +1,15 @@
 <template>
   <div>
-      <router-link to='/login'>login</router-link>
+      <nav-bar />
   </div>
 </template>
 
 <script>
+  import NavBar from '../components/NavBar.vue'
 export default {
-  
+  components: {
+    NavBar
+  }
 }
 </script>
 

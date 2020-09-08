@@ -20,7 +20,13 @@ const users = {
         setUser: (state, payload) => {
             state.user.login = payload.login
             state.user.status = payload.status
-        } 
+        },
+        removeUser(state){
+            state.user.login = ""
+            state.user.status = false
+            localStorage.removeItem('isAuthentificated')
+            localStorage.removeItem('login');
+        }
     },
     actions: {
         connectUser: (context, payload) => {
