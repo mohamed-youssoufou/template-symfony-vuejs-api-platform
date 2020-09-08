@@ -1,5 +1,4 @@
-import axios from '../../../plugins/axios'
-
+import api from '../../../API'
 
 const users = {
     
@@ -30,7 +29,7 @@ const users = {
     },
     actions: {
         connectUser: (context, payload) => {
-            return axios.post('users', payload)
+            return api.login(payload)
         }
     }
 }

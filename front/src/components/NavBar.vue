@@ -31,7 +31,7 @@
                   <span>{{ getUsername }}<span class="text-primary"></span></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a class="dropdown-item" href="#" @click="deconnexion">Me deconnecter</a></li>
+                  <li><a class="dropdown-item" @click="deconnexion">Me deconnecter</a></li>
                   <!--li><a class="dropdown-item" href="#">Preferences</a></li-->
                 </ul>
               </li>
