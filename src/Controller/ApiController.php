@@ -44,4 +44,14 @@ class ApiController extends FOSRestBundle
         ]);
         return $response->toArray();
     }
+
+    /**
+     * @Rest\Get("/todo")
+     * @Rest\View
+     */
+    public function todolist(){
+        return $this->client->request('GET', EndPoints::JSON_PLACEHOLDER."todos")->toArray();
+    }
+
+
 }
