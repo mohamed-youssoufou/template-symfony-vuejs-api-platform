@@ -48,7 +48,7 @@ export default {
     ...mapActions('UsersModule',[
       'connectUser'
     ]),
-    ...mapMutations('UsersModule', [
+    ...mapMutations('UsersModule', [ 
       'setUser'
     ]),
     login : function (){

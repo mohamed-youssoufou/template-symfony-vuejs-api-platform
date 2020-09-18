@@ -73,6 +73,7 @@ Encore
     .addStyleEntry('global','./front/src/assets/css/global.css')
     .addStyleEntry('bootstedmincss', './front/src/assets/css/bootstedmincss.css')
     .addStyleEntry('nprogressmin', './front/src/assets/css/nprogressmin.css')
+    .addStyleEntry('datepicker', './front/src/assets/css/datepicker.css')
 
     //.copyFiles({
     //     from: './front/src/assets/img',

@@ -1,4 +1,4 @@
-import axios from '../../API/users'
+import axios from '../../plugins/axios'
 
 const request = {
     login: (payload) => {

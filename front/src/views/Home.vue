@@ -10,6 +10,12 @@
           <div class="col-lg-2">
             <input class="form-control" type="text" v-model="searchTitle" placeholder="titre">
           </div>
+          <div class="col-lg-2">
+            <date-picker v-model="date1" valueType="format" ></date-picker>
+          </div>
+          <div class="col-lg-2">
+            <date-picker v-model="date2" valueType="format"></date-picker>
+          </div>
         </div>
         <table id="news-table" class="table tablesorter mb-5">
           <thead class="cf">
@@ -49,7 +55,8 @@
   import api from '../API/todos'
   import Pagination from '../components/Paginator.vue'
   import Spinner from '../components/spinners/Spinner.vue'
-import todos from '../API/todos'
+  import todos from '../API/todos'
+  import DatePicker from 'vue2-datepicker';
 
   const customLabels = {
     first: '',
@@ -63,7 +70,8 @@ import todos from '../API/todos'
     components: {
       NavBar,
       Pagination,
-      Spinner
+      Spinner,
+      DatePicker
     },
     data : function(){
       return {
@@ -72,7 +80,9 @@ import todos from '../API/todos'
         spinner : true,
         pageOfItems: [],
         customLabels,
-        searchTitle : ""
+        searchTitle : "",
+        date1: null,
+        date2: null,
       }
     },
     computed: {
