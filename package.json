@@ -22,6 +22,7 @@
     "dependencies": {
         "axios": "^0.20.0",
         "bootstrap-vue": "^2.16.0",
+        "chart.js": "^2.9.3",
         "install": "^0.13.0",
         "jquery": "^3.5.1",
         "jw-vue-pagination": "^1.0.3",
@@ -29,6 +30,7 @@
         "popper.js": "^1.16.1",
         "vue": "^2.6.12",
         "vue-axios": "^2.1.5",
+        "vue-chartjs": "^3.5.1",
         "vue-loader": "^15.9.3",
         "vue-lodash": "^2.1.2",
         "vue-router": "^3.4.3",

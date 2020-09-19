@@ -4,8 +4,13 @@
       <spinner class="loader" v-if="spinner"></spinner>
       <div class="container">
         <div class="row mt-3">
-          <div class="col-lg-2">
-              Rechercher Par
+          <div class="col-lg-12">
+            <Chart :chart-data="datacollection"/>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-2 pt-2">
+              <h3>Rechercher Par</h3>
           </div>
           <div class="col-lg-2">
             <input class="form-control" type="text" v-model="searchTitle" placeholder="titre">
@@ -18,6 +23,11 @@
           </div>
           <div class="col-lg-2">
             <button class="btn btn-primary" @click="searchByTwoDates">Chercher</button>
+          </div>
+        </div>
+        <div class="row" v-if="pageOfItems.length">
+          <div class="col-lg-12">
+            <p>Nombre d'élement(s) trouvé(s) <strong>{{ todos.length }}</strong></p>
           </div>
         </div>
         <table id="news-table" class="table tablesorter mb-5">
@@ -46,8 +56,8 @@
           <tbody v-else>
             <tr style="border-bottom: none">aucun element trouvé</tr>
           </tbody>
-      </table>
-      <div class="card-footer pb-0 pt-3">
+        </table>
+        <div class="card-footer pb-0 pt-1">
             <jw-pagination :items="todos" @changePage="onChangePage" :labels="customLabels"></jw-pagination>
         </div>
       </div>
@@ -62,6 +72,7 @@
   import Spinner from '../components/spinners/Spinner.vue'
   import todos from '../API/todos'
   import DatePicker from 'vue2-datepicker';
+  import Chart from '../components/Chart.vue'
 
   const customLabels = {
     first: '',
@@ -71,12 +82,13 @@
   };
 
   export default {
-
+    
     components: {
       NavBar,
       Pagination,
       Spinner,
-      DatePicker
+      DatePicker,
+      Chart
     },
     data : function(){
       return {
@@ -87,7 +99,8 @@
         customLabels,
         searchTitle : "",
         date1: null,
-        date2: null
+        date2: null,
+        datacollection: {}
       }
     },
     computed: {
@@ -123,11 +136,6 @@
             }
 
           })
-
-          //if(this.date2 !== null && this.date2 !== null){
-          //  const diff = diff(this.date2, this.date1);
-          //  if(diff ==)
-          //}
       },
       getTimeDiff: (time1, time2) => {
         return new Date(time1).getTime() - new Date(time2).getTime()
@@ -148,6 +156,27 @@
       //fin test
       //this.todos = res.data
       this.todosFilter = this.todos
+      // chart js loading 
+
+    },
+    beforeMount() {
+      this.datacollection = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+          },
+                    {
+            label: 'Second data',
+            backgroundColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgb(25, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45].reverse()
+          }
+        ]
+      }
     }
   }
 </script>
