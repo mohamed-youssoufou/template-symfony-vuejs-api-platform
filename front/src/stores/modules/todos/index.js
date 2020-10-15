@@ -1,14 +1,14 @@
 
 import api from '../../../API/todos'
 
-const loadTodos = api.getTodos()
+//const loadTodos = api.getTodos()
 
 const todos = {
 
     namespaced :true,
 
     state: {
-        todos : loadTodos || []
+        todos : []
     },
     getters: {
         getTodos: state => {
@@ -19,10 +19,10 @@ const todos = {
         SET_TODO: (state, payload) => state.todos = payload
     },
     actions: {
-        loadTodos({commit}){
-            payload = api.getTodos().data
-            commit('SET_TODO', payload)
-        }
+        //loadTodos({commit}){
+        //    payload = api.getTodos().data
+        //    commit('SET_TODO', payload)
+        //}
     }
 
 }

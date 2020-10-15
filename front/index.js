@@ -8,6 +8,7 @@ import router from './src/router';
 import store from './src/stores/index'
 import './src/plugins/paginator'
 import './src/plugins/lodash'
+import './src/mixins/history';
 
 Vue.config.productionTip = false
 

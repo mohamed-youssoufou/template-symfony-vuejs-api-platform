@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row mt-3">
           <div class="col-lg-12">
-            <Chart :chart-data="datacollection"/>
+            <Chart class="chart_zone" :chart-data="datacollection"/>
           </div>
         </div>
         <div class="row mt-3">
@@ -42,14 +42,14 @@
             </tr>
           </thead>
           <tbody v-if="pageOfItems.length">
-            <tr v-for="todo in pageOfItems" :key="todo.index">
+            <tr v-for="todo in pageOfItems" :key="todo.id">
               <td class="align-middle">{{todo.userId}}</td>
               <td class="align-middle">{{todo.id}}</td>
               <td class="align-middle">{{todo.title}}</td>
               <td class="align-middle">{{todo.date}}</td>
               <td class="align-middle">{{todo.completed}}</td>
               <td class="align-middle">
-                <router-link to="/" class="btn btn-sm btn-primary">+</router-link>
+                <router-link :to="{ name: 'detail', params: { id: todo.id }}" class="btn btn-sm btn-primary">+</router-link>
               </td>
             </tr>
           </tbody>
@@ -138,10 +138,11 @@
           })
       },
       getTimeDiff: (time1, time2) => {
+        console.log(`${time1} - ${time2}`)
         return new Date(time1).getTime() - new Date(time2).getTime()
       }
     },
-    async mounted(){
+    async created(){
       const res = await api.getTodos()
       this.$store.commit('TodosModule/SET_TODO', res.data)
       this.spinner = false

@@ -68,3 +68,8 @@
   height: 100%;
   background-color: rgba(255, 218, 130, 0.2);
 }
+
+.chart_zone {
+  max-width: 600px;
+  margin:  10px auto;
+}

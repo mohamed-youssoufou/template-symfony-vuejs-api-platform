@@ -9,11 +9,11 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class HttpExceptionListener{
 
-    public function call(ExceptionEvent $event){
+    public function __invoke(ExceptionEvent $event){
 
         $exception = $event->getException();
 
-        if(!($exception instanceof TransportException) || strpos($event->getRequest()->getRequestUri(), '/api/') == false){
+        if(!($exception instanceof TransportException) || strpos($event->getRequest()->getRequestUri(), 'api') == false){
             return ;
         }
 
@@ -28,7 +28,7 @@ class HttpExceptionListener{
                 ];
 
         $response = new JsonResponse($body);
-        $response->setStatusCode($exception->getStatusCode());
+        $response->setStatusCode($exception->getCode());
         $event->setResponse($response);
     }
 
