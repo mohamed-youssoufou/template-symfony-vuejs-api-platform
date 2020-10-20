@@ -8,8 +8,11 @@ parameters:
 services:
     
     _defaults:
-        autowire: true 
-    
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $public: "%kernel.project_dir%/public/files/keys.ymbl"
+
     App\:
         resource: '../src/'
         exclude:
@@ -23,7 +26,6 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
-    
     
     App\Listeners\HttpExceptionListener:
         tags:

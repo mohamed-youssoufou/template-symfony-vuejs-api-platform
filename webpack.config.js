@@ -66,6 +66,8 @@ Encore
     .addEntry('bootstedminjs', './front/src/assets/js/bootstedminjs.js')
     .addEntry('jquerytablesortermin', './front/src/assets/js/jquerytablesortermin.js')
     .addEntry('popermin', './front/src/assets/js/popermin.js')
+    // .addEntry('cryptojs-aesmin', './front/src/assets/js/cryptojs-aesmin.js')
+    // .addEntry('cryptojs-aes-format', './front/src/assets/js/cryptojs-aes-format.js')
 
     
 

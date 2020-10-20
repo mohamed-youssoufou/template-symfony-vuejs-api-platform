@@ -144,10 +144,10 @@
     },
     async created(){
       const res = await api.getTodos()
-      this.$store.commit('TodosModule/SET_TODO', res.data)
+      this.$store.commit('TodosModule/SET_TODO', res)
       this.spinner = false
       //test add date to todo
-      this.todos = res.data
+      this.todos = res
       let newTodo = []
       this.todos.forEach(todo => {
         todo.date = `2020-9-${Math.floor(Math.random() * (30 - 1 + 1)) + 1}`
